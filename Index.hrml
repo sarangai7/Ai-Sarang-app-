@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sarang - Your Universal Daily Life Solver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 to-blue-950 text-white min-h-screen">
+    <div class="max-w-md mx-auto min-h-screen shadow-2xl overflow-hidden">
+
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-center">
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">🤖</div>
+                <h1 class="text-4xl font-bold tracking-tighter">AI Sarang</h1>
+            </div>
+            <p class="text-blue-100 mt-1 text-sm">Your Universal Daily Life Solver</p>
+        </header>
+
+        <!-- Daily Tip -->
+        <div class="p-6 bg-white/10 border-b border-white/10">
+            <div class="flex items-center gap-2 text-blue-300 text-sm font-medium">
+                <span>✨</span>
+                <span>Today's Insight</span>
+            </div>
+            <p id="dailyTip" class="mt-3 text-lg leading-relaxed text-slate-200">
+                Small consistent actions create big results. Start tracking one expense today.
+            </p>
+        </div>
+
+        <!-- Ask Section -->
+        <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-4">Ask AI Sarang</h2>
+            <textarea id="userQuestion" rows="4" 
+                class="w-full bg-white/10 border border-white/20 rounded-3xl p-5 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-400 resize-none text-base"
+                placeholder="Example: How can I save money with low income?"></textarea>
+            
+            <button onclick="getAISolution()" 
+                class="mt-6 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 py-5 rounded-3xl font-semibold text-lg shadow-lg transition-all active:scale-[0.97]">
+                Get Practical Solution
+            </button>
+        </div>
+
+        <!-- Response -->
+        <div id="responseArea" class="hidden p-6">
+            <div class="glass border border-white/10 rounded-3xl p-6">
+                <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <span class="text-blue-400">🤖</span> AI Sarang Solution
+                </h3>
+                <div id="aiResponse" class="text-slate-200 leading-relaxed text-[15.5px]"></div>
+            </div>
+
+            <div class="flex gap-4 mt-6">
+                <button onclick="copySolution()" class="flex-1 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-3xl font-medium transition">📋 Copy</button>
+                <button onclick="shareSolution()" class="flex-1 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-3xl font-medium transition">📤 Share</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
